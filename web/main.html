@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<meta charset="UTF-8">
+<title>Library</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+<style>
+    body{
+        background-color: #F8BAA3;
+    }
+    .row {
+        background-color: #FAD1C1;
+    }
+
+    #header{
+
+        color: #F8BAA3;
+        text-align: center;
+    }
+
+    #footer{
+        background-color: #561C06;
+        color: white;
+        text-align: center;
+    }
+    img{
+        height: 350px;
+        width: 300px;
+    }
+    #footer img{
+        height: 20px;
+        width: 20px;
+    }
+
+    #nav{
+        display: flex;
+        justify-content:space-around;
+    }
+    .row .col-sm-8{
+        display: flex;
+        justify-content: center;
+    }
+
+    input.ng-valid{
+        border:2px solid #11E490;
+    }
+
+    .form-horizontal {
+        max-width: 600px;
+        margin: auto;
+        border: 1px solid #11E490;
+    }
+
+    .form-horizontal:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .form-heading {
+        width: 300px;
+        background: #00B16A;
+        background-color: #722508;
+        padding: 10px 15px;}
+
+    .title {
+        color: #fff;
+        margin: 0;
+    }
+
+    .form-group {
+        max-width: 100%;
+        margin: auto;
+        margin: 15px;
+        padding-right: 10px;}
+
+    .form-control:focus {
+        box-shadow: none;
+    }
+
+    .btn {
+        margin-right: 15px;
+        margin-bottom: 15px;
+    }
+
+</style>
+<body ng-app="myApp">
+<script>
+    var app = angular.module("myApp", ["ngRoute"]);
+    app.config(function($routeProvider) {
+        $routeProvider
+            .when("/acceuil", {
+                templateUrl : "Produit.xhtml"
+            })
+            .when("/connexion", {
+                templateUrl : "login.xhtml"
+            })
+            .otherwise({
+                redirectTo: "/acceuil"
+            });
+    }).controller('ValidationCtrl', function (){
+
+    });
+</script>
+<div class="container">
+    <div class="row">
+        <div id="header" class="col-sm-12">
+            <img src="img/book1.jpg" class="col-sm-12">
+        </div>
+    </div>
+    <nav class="navbar navbar-inverse navbar-fixed" style="background-color: #391304">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="font-family:Old English Text MT" style="font-size: 4000px">WorldBooks</a>
+        </div>
+        <ul id="nav" class="nav navbar-nav">
+            <li><a href="#!acceuil" style="font-family:Old English Text MT" style="font-size: 4000px">Acceuil</a></li>
+            <li><a href="#!connexion" style="font-family:Old English Text MT" style="font-size: 4000px">Connexion</a></li>
+
+        </ul>
+
+    </nav>
+    <div class="row">
+        <div class="col-sm-8" ng-view></div>
+        <div class="col-sm-4"><h2 style="font-family:Old English Text MT" style="font-size: 4000px">About our Website</h2>
+            <P><b>Hotels.com</b>
+                More than 300,000 of our trusted Travelers voted in this year’s Readers’ Choice Awards, sharing tales—and tips—from their vacations
+                in Santorini, or weekends spent at Italian palazzos in Ho Chi Minh City. Get ready: These are the 50 best hotels in the world, say our
+                readers, where service, style, good eats, and sublime views make for a memorable stay. Want to change the results this year? Vote now in
+                our 2018 Readers' Choice Awards survey.
+            </P>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8">
+            <img src="../img/book2.jpg" width="300" height="170" CLASS="rounded-circle">
+            <img src="../img/book3.jpg" width="300" height="170" CLASS="rounded-circle">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="footer" class="col-sm-12">
+            <h4>Contact us</h4>
+            <p class="glyphicon glyphicon-envelope">BooksCollection@gmail.com</p><br>
+            <img src="img/fb.png" class="rounded-circle">
+            <img src="img/tw.ico" class="rounded-circle">
+            <img src="img/insta.jpg" class="rounded-circle">
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

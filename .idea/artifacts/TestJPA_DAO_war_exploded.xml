@@ -1,0 +1,23 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="TestJPA_DAO:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/TestJPA_DAO_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="TP3_DAO/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="TP3_DAO" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="application" name="modules" />
+          <element id="library" level="project" name="org.hibernate:hibernate-core:5.3.0.Beta2" />
+          <element id="library" level="project" name="org.wisdom-framework:mysql-connector-java:5.1.34_1" />
+          <element id="library" level="project" name="Mojarra-1.2" />
+          <element id="library" level="project" name="org.primefaces:primefaces:6.1" />
+          <element id="library" level="project" name="commons-fileupload:commons-fileupload:1.2.1" />
+          <element id="library" level="project" name="commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="com.ocpsoft:prettyfaces-jsf2:3.3.3" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

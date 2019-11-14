@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" />
+    <h:outputStylesheet library="css" name="login.css"></h:outputStylesheet>
+</h:head>
+
+
+
+<h:body>
+
+
+
+<div class="container-fluid bg" style="background: url('phone101.jpg')no-repeat;height: 100vh">
+    <div class="row">
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+        <div class="col-md-4 col-sm-4 col-xs-12">
+<h:form class="form-container">
+<h1>Sign In</h1>
+    <div class="form-group">
+        <p:outputLabel  value="Username"></p:outputLabel>
+        <p:inputText name="Username" value="#{loginControlleur.login.username}" id="exampleInputLogin" style="width: 250px;height: 35px" />
+    </div>
+
+    <div class="form-group">
+        <p:outputLabel  value="Password"></p:outputLabel>
+        <p:password name="Username" value="#{loginControlleur.login.password}" id="exampleInputPassword"  style="width: 250px;height: 35px"/>
+    </div>
+    <h:commandButton value="submit" action="#{loginControlleur.log()}" styleClass="btn btn-success btn-block"
+                     style="width: 250px;height: 35px;margin-left: -60px;margin-top: 30px" />
+</h:form>
+
+
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+    </div>
+</div>
+
+
+
+
+</h:body>
+
+
+</html>

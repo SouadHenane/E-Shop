@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Liste des produits</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css"/>-->
+    <h:outputStylesheet library="css" name="style2.css"></h:outputStylesheet>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <!--<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>-->
+
+</h:head>
+<h:body styleClass="backco">
+    <h:form id="form">
+        <p:panel header="Cart">
+            <h:outputText value="#{shoppingCart.cartsize} #{shoppingCart.item}" id="carts"/>
+            <h:outputLink value="carts.xhtml">View Cart</h:outputLink>
+        </p:panel>
+
+        <p:growl id="msgs" showDetail="true"/>
+
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <p:commandButton value="Add new product" styleClass="ui-priority-primary"     action="addproduit" />
+            </div>
+        </div>
+        <p:dataGrid var="p" id="produit1" value="#{produitController.findAll()}"
+                    editable="true" style="margin-bottom:20px" width="1000px" height="300px"
+                    columns="3" rows="10"  paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="6,12,16">
+
+            <f:facet name="header">   <h:outputLabel value="All products"/>      </f:facet>
+
+            <p:panel header="#{p.designation}">
+                <h:panelGrid columns="1">
+                    <h:graphicImage value="#{p.photo}" library="pics" width="300" height="300"/>
+                    <h:outputText value="#{p.prix}"/>
+                    <p:commandButton action="#{shoppingCart.addToCart(p)}" value="Add to carts" ajax="false">
+
+                    </p:commandButton>
+
+
+                </h:panelGrid>
+
+            </p:panel>
+
+        </p:dataGrid>
+    </h:form>
+</h:body>
+</html>

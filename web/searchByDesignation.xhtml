@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+
+    <title>Recherch par Auteur</title>
+
+
+</h:head>
+<h:body style="text-align: center">
+    <f:view>
+
+        <center><h2><h:outputText value="Recherche Par desgination"/> </h2></center>
+
+        <h:form styleClass="form-horizontal">
+            <fieldset>
+                <div class="form-group">
+                    <h:outputLabel for="isbn"  styleClass="control-label col-sm-4">Desgination :</h:outputLabel>
+                    <div class="col-sm-4"><h:inputText id="isbn" label="auteur" value="#{produitController.searchWord}"
+                                                       styleClass="form-control" required="true"/></div>
+                </div>
+                <h:message id="NumMessage" for="isbn" errorClass="erreur" styleClass="text text-danger"/>
+                <div class="form-group">
+
+                    <div class="col-sm-4 col-sm-27" />
+
+                    <div class="col-sm-8">
+                        <center> <h:commandButton value="chercher" action="#{produitController.SearchByAuteur()}"
+                                                  styleClass="btn btn-success btnWidth"></h:commandButton></center>
+                    </div>
+                </div>
+            </fieldset>
+        </h:form>
+    </f:view>
+</h:body>
+</html>

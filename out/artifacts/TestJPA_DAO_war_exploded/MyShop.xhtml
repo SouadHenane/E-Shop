@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui"
+   >
+<h:head><title>E-Shop</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+
+
+    <link type="text/css" rel="stylesheet" href="./resources/fonts/web-fonts-with-css/css/fontawesome.css"/>
+    <link type="text/css" rel="stylesheet" href="./resources/fonts/web-fonts-with-css/css/fontawesome-all.css"/>
+
+    <link type="text/css" rel="stylesheet" href="./resources/fonts/advanced-options/raw-svg/regular"/>
+    <!--<link type="text/css" rel="stylesheet"-->
+          <!--href="/JavaServerFaces/faces/javax.faces/style.css?ln=css" />-->
+
+    <!--<h:link type="text/css" rel="stylesheet" href="/web/css/style1.css"></h:link>-->
+    <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+</h:head>
+<h:body id="ground">
+
+
+    <p:graphicImage value="logo3.PNG" style="border-radius: 80px"/>
+    <h:form id="form" >
+
+        <div class="container">
+            <h1 class="header" style="font-size: 50px;text-align: center">Welcome to shop online</h1>
+            <div  class="navbar-header" id="navbarSupportedContent" >
+
+                    </div>
+                      <div  class="col-md-12" style="margin-left: -370px">
+                        <ul  id="nav" class="nav navbar-nav" >
+                            <li class="nav-item active" style="display: inline-block">
+
+                                  <h:outputLink value="MyShop.xhtml" class="fa fa-home">Home</h:outputLink>
+
+                            </li>
+                            <li class="nav-item" style="display: inline-block">
+
+                               <h:outputLink value="Produit.xhtml" class="fa fa-laptop"> Products</h:outputLink>
+
+                            </li>
+                            <li class="nav-item">
+
+                                    <h:outputLink value="login.xhtml" styleClass="fa fa-user" >My Account</h:outputLink>
+
+                            </li>
+                            <li class="nav-item">
+
+                                    <h:outputLink value="contact.xhtml" styleClass="fa fa-phone-square">Contact us</h:outputLink>
+
+                            </li>
+                        </ul>
+                      </div>
+                    </div>
+
+        <!--</h:graphicImage>-->
+
+        <div  style="text-align: center">
+
+            <div class="col-md-12">
+ <div >
+                <p:galleria value="#{imagesView.images}" var="image" panelWidth="1150" panelHeight="600"
+                            effect="slide" effectDuration="10000" showCaption="true" style="margin-left: -10px">
+                    <p:graphicImage name="/pics/#{image}"  alt="Image Description for #{image}" title="#{image}" width="1150" height="600" style="margin-top: -15px"/>
+
+
+
+
+                </p:galleria>
+     <div style="margin-top:-500px;margin-right: -1000px;background-position: right,top ">
+                <h4>Shop By</h4>
+         <h:outputLink value="user.xhtml">Inscription</h:outputLink><br/>
+                <h:outputLink value="Women.xhtml">Women</h:outputLink><br/>
+                <h:outputLink value="addcategory.xhtml">Men</h:outputLink><br/>
+                <h:outputLink value="addproduit.xhtml">Kids</h:outputLink><br/>
+                <h:outputLink value="addproduit.xhtml">Sports</h:outputLink><br/>
+                <h:outputLink value="Women2.xhtml">Electronics</h:outputLink><br/></div></div>
+
+<div style="display:block;">
+<h4>This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+              <p:imageSwitch effect="shuffle" style="width:300px;height: 250px;margin-top: 500px">
+                    <ui:repeat value="#{imagesView4.images}" var="image">
+                        <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px" />
+
+                    </ui:repeat>
+
+</p:imageSwitch>
+
+    <h4 style="margin-left: -1200px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+                <p:imageSwitch effect="shuffle" style="width:300px;height:250px">
+                    <ui:repeat value="#{imagesView6.images}" var="image">
+                        <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px" />
+                    </ui:repeat>
+                </p:imageSwitch>
+
+    <h4 style="margin-left: -1200px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+                <p:imageSwitch effect="shuffle" style="width:300px;height:250px">
+                    <ui:repeat value="#{imagesView8.images}" var="image">
+                        <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px"/>
+                    </ui:repeat>
+                </p:imageSwitch>
+    <h4 style="margin-left: -1200px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+
+
+</div>
+
+
+
+                <div style="display:block;">
+
+                    <p:imageSwitch effect="shuffle" style="width:300px;height: 250px;margin-left: 500px;margin-top: -980px">
+                        <ui:repeat value="#{imagesView14.images}" var="image">
+                            <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px" />
+
+                        </ui:repeat>
+
+                    </p:imageSwitch>
+
+                    <h4 style="margin-left: -160px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+                    <p:imageSwitch effect="shuffle" style="width:300px;height:250px;margin-left: 500px">
+                        <ui:repeat value="#{imagesView15.images}" var="image">
+                            <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px" />
+                        </ui:repeat>
+                    </p:imageSwitch>
+
+                    <h4 style="margin-left: -160px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+                    <p:imageSwitch effect="shuffle" style="width:300px;height:250px;margin-left: 500px">
+                        <ui:repeat value="#{imagesView10.images}" var="image">
+                            <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px"/>
+                        </ui:repeat>
+                    </p:imageSwitch>
+                    <h4 style="margin-left: -160px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+
+
+                </div>
+
+
+
+                <div style="display:block;">
+
+                    <p:imageSwitch effect="shuffle" style="width:300px;height: 250px;margin-left: 1000px;margin-top: -980px">
+                        <ui:repeat value="#{imagesView9.images}" var="image">
+                            <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px" />
+
+                        </ui:repeat>
+
+                    </p:imageSwitch>
+
+                    <h4 style="margin-left: 800px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+                    <p:imageSwitch effect="shuffle" style="width:300px;height:250px;margin-left: 1000px">
+                        <ui:repeat value="#{imagesView11.images}" var="image">
+                            <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px" />
+                        </ui:repeat>
+                    </p:imageSwitch>
+
+                    <h4 style="margin-left: 800px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+                    <p:imageSwitch effect="shuffle" style="width:300px;height:250px;margin-left: 1000px">
+                        <ui:repeat value="#{imagesView16.images}" var="image">
+                            <p:graphicImage name="/pics/#{image}" style="width:300px;height: 250px"/>
+                        </ui:repeat>
+                    </p:imageSwitch>
+                    <h4 style="margin-left: 800px">This is our latest collection this summer<br/> and there is more amazing products for you<br/> sir so discover it here.</h4>
+
+
+                </div>
+
+                
+            </div>
+
+            <div class="row">
+                <div id="footer" class="col-sm-12">
+                    <h5>For more information</h5>
+                    <p class="fa fa-mail-forward">HiTechCollection@gmail.com</p><br/>
+                   <p class="fa fa-print">&nbsp;copyright 2017*2018</p>
+                </div>
+            </div>
+        </div>
+
+
+    </h:form>
+
+</h:body>
+</html>

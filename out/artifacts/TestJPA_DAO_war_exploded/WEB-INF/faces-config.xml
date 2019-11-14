@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+    http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+
+    <navigation-rule>
+        <from-view-id>/Categorie.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/addcategory.xhtml</to-view-id>
+
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Produit.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/addproduit.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/user.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/Welcome.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+
+    <navigation-rule>
+        <from-view-id>/Produit.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/viewcart.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/Commande.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>success</from-outcome>
+            <to-view-id>/addcommande.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <navigation-rule>
+        <from-view-id>/MyShop.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{navigationController.processHomePage}</from-action>
+            <from-outcome>page</from-outcome>
+            <to-view-id>/MyShop.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationController.processProductPage}</from-action>
+            <from-outcome>page</from-outcome>
+            <to-view-id>/Produit.xhtml</to-view-id>
+        </navigation-case>
+
+        <navigation-case>
+            <from-action>#{navigationController.processLoginPage}</from-action>
+            <from-outcome>page</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{navigationController.processContactPage}</from-action>
+            <from-outcome>page</from-outcome>
+            <to-view-id>/contact.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+</faces-config>

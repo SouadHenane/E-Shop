@@ -1,0 +1,157 @@
+#ground{
+    background-color: #F8BAA3;
+}
+.fa{
+    font-size:20px;
+   color:#FAD1C1;
+    text-align: center;
+
+}
+
+ul li{
+    padding-left:0;
+    margin-top: 15px;
+    margin-right: 15px;
+}
+#footer{
+    background-color: #561C06;
+    color: white;
+    text-align: center;
+
+}
+
+#footer #img1{
+    height: 20px;
+    width: 20px;
+}
+#footer #img2{
+    height: 20px;
+    width: 20px;
+}
+
+.row {
+    background-color: #FAD1C1;
+}
+#nav{
+    display: flex;
+
+    background-color: #561C06;
+    width:1900px;
+    height: 60px;
+    margin-left: 170px;
+    margin-bottom: -1px;
+
+}
+.row .col-md-1{
+
+    justify-content: center;
+text-decoration: none;
+display-model: horizental;
+    display: block;
+
+}
+
+
+.nav navbar-nav{
+    display: inline-block;
+background-color: #721c24;
+}
+
+#p{
+    background-color: #721c24;
+    padding: 0;
+}
+.row .col-md-11 {
+margin-right: -10px;
+
+}
+#form{
+    width: 1500px;
+align-content: center;
+    margin-left: -1px;
+}
+.header{
+
+    color:#561C06;
+    text-align: center;
+    font-family: "Road Rage";
+    font-size: 25px;
+}
+
+.nav-item{
+    display: inline-block;
+    text-decoration: none;
+
+}
+.message{
+    color:#561C06;
+    font-family: "Road Rage";
+    text-align: center;
+}
+
+.backco{
+    background-color: #F8BAA3;
+}
+ body{
+     background-color: #F8BAA3;
+ }
+.row {
+    background-color: #FAD1C1;
+}
+#b1{
+    background-color: #F8BAA3;
+}
+
+#header{
+
+    color: #F8BAA3;
+    text-align: center;
+}
+
+#footer{
+    background-color: #561C06;
+    color: white;
+    text-align: center;
+}
+/*img{*/
+    /*height: 200px;*/
+    /*width: 200px;*/
+/*}*/
+.row .col-sm-8{
+    display: flex;
+    justify-content: center;
+}
+
+.title {
+    color: #fff;
+    margin: 0;
+}
+
+.form-group {
+    max-width:1000%;
+
+    margin: 20px;
+    padding-right: 10px;}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+.btn {
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+li{
+    display: inline-block;
+    text-decoration: none;
+    text-color: #561C06;
+    font-family: Old English Text MT;
+    padding-right: 0px;
+    padding-left: 0;
+}
+
+a{
+    text-decoration-color:#561C06 ;
+    font-size: 22px;
+}

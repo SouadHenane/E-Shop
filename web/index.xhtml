@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Liste des produits</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css"/>-->
+    <h:outputStylesheet library="css" name="style2.css"></h:outputStylesheet>
+
+    <!--<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>-->
+</h:head>
+<h:body styleClass="backco">
+    <h:form id="form">
+        <p:growl id="msgs" showDetail="true"/>
+        <p:dataTable var="carts" id="produit1" value="#{cartController.findAll()}"
+                     style="margin-bottom:20px" width="1000px" height="300px" editable="true"
+                     rows="10"  >
+            <f:facet name="header">   <h:outputLabel value="your carts"/>      </f:facet>
+
+
+            <p:ajax event="rowEdit" listener="#{cartController.onRowEdit}" update=":form:msgs"/>
+            <p:ajax event="rowEditCancel" listener="#{cartController.onRowCancel}" update=":form:msgs"/>
+
+            <p:column headerText="Product Name">
+                <p:cellEditor>
+                    <f:facet name="output"><p:outputLabel value="#{carts.productName}"/></f:facet>
+                    <f:facet name="input"><p:inputText id="modelInput" value="#{carts.productName}" style="width:100%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="Product Quantity">
+                <p:cellEditor>
+                    <f:facet name="output"> <p:outputLabel value="#{carts.quantite}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carts.quantite}" style="width:100%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="Total">
+
+                <p:outputLabel value="#{carts.total}"/>
+
+            </p:column>
+
+            <p:column headerText="update">
+                <h:commandLink value="update" action="#{cartController.edit(carts)}" onclick="return confirm('Are you sure?')"/>
+            </p:column>
+            <h:outputLink value="Produit.xhtml">Continue shopping</h:outputLink>
+            <h:outputLink value="paytype.xhtml" >pay</h:outputLink>
+
+            <p:column style="width:32px">
+                <p:rowEditor/>
+            </p:column>
+        </p:dataTable>
+
+    </h:form>
+</h:body>
+</html>

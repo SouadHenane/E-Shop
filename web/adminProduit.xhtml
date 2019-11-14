@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Liste des produits</title>
+
+    <link type="text/css" rel="stylesheet" href="./resources/fonts/web-fonts-with-css/css/fontawesome.css"/>
+    <link type="text/css" rel="stylesheet" href="./resources/fonts/web-fonts-with-css/css/fontawesome-all.css"/>
+
+    <link type="text/css" rel="stylesheet" href="./resources/fonts/advanced-options/raw-svg/regular"/>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css"/>-->
+    <h:outputStylesheet library="css" name="style2.css"></h:outputStylesheet>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <!--<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>-->
+    <h:outputStylesheet library="css" name="style3.css"></h:outputStylesheet>
+
+</h:head>
+<h:body styleClass="backco">
+    <h:form id="form">
+        <p:panel header="Cart" styleClass="ui-g">
+            <h:outputText value="#{cartController.cartsize} #{cartController.item}" id="carts"/>&nbsp;&nbsp;
+          <h:outputLink value="viewcart.xhtml" styleClass="fa fa-shopping-cart">View Cart</h:outputLink>
+        </p:panel>
+
+        <p:growl id="msgs" showDetail="true"/>
+
+        <div class="ui-g">
+            <div class="ui-g-12">
+                <p:commandButton value="Add new product" styleClass="ui-priority-primary"     action="addproduit" />
+            </div>
+        </div>
+        <p:dataGrid var="p" id="produit1" value="#{produitController.findAll()}" styleClass="ui ui-datagrid"
+                    editable="true"
+                   columns="3" rows="10"  paginator="true" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}" rowsPerPageTemplate="6,12,16">
+
+   <f:facet name="header">   <h:outputLabel value="All products"/>      </f:facet>
+
+         <p:panel header="#{p.designation}" style="background-color:#FAD1C1">
+                <h:panelGrid columns="1">
+                    <h:graphicImage value="#{p.photo}" library="pics" width="300" height="300" url="phone2.jpg"/>
+                    <h:outputText value="#{p.prix}"/>
+
+                    <h:outputText value="Quantite"/>
+                    <h:inputText binding="#{input1}"/>
+                    <p:commandButton action="#{cartController.processCart(input1.value)}" value="Add to carts" update=":form:carts" id="btn">
+
+                        <f:setPropertyActionListener  target="#{cartController.productId}" value="#{p.idProduit}"/>
+                        <f:setPropertyActionListener target="#{cartController.productName}" value="#{p.designation}"/>
+                        <f:setPropertyActionListener target="#{cartController.price}" value="#{p.prix}"/>
+
+
+                    </p:commandButton>
+
+
+                </h:panelGrid>
+                <p:commandLink update=":form:pro" oncomplete="PF('proDetails').show()" title="show details">
+                    <h:outputText styleClass="ui-icon ui-icon-search"/>
+                    <f:setPropertyActionListener value="#{p}" target="#{produitController.selectionne}"/>
+                </p:commandLink>
+            </p:panel>
+
+        </p:dataGrid>
+        <p:dialog header="Product Info" widgetVar="proDetails"  modal="true" showEffect="fade"
+                  hideEffect="fade" id="dialogue">
+            <p:outputPanel id="pro">
+               <p:panelGrid columns="2">
+                   <f:facet name="header">
+                       <h:graphicImage value="#{p.photo}" library="pics" width="300" height="300" url="phone2.jpg"/>
+                   </f:facet>
+
+                   <h:outputText value="Prix"/>
+                   <h:outputText value="#{produitController.selectionne.prix}"/>
+
+                   <h:outputText value="Quantite"/>
+                   <h:outputText value="#{produitController.selectionne.quantite}"/>
+
+                   <h:outputText value="Categorie"/>
+                   <h:outputText value="#{produitController.selectionne.categorie.nomCategorie}"/>
+
+                   <h:outputText value="Description"/>
+                   <h:outputText value="#{produitController.selectionne.description}"/>
+                   <h:outputText value=""/>
+               </p:panelGrid>
+            </p:outputPanel>
+        </p:dialog>
+    </h:form>
+</h:body>
+</html>

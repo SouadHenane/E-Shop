@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>payment</h:head>
+
+
+<h:body>
+    <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post">
+
+        <input type="hidden" name="cmd" value="_cart"/>
+        <input type="hidden" name="upload" value="1"/>
+        <c:set var="dem" value="1"/>
+        <c:forEach items="#{cartController.produit}" var="i">
+            <input type="hidden" name="item_number_#{dem}" value="#{i.p.designation}"/>
+            <input type="hidden" name="item_number_#{dem}" value="#{i.p.description}"/>
+            <input type="hidden" name="item_number_#{dem}" value="#{i.p.quantite}"/>
+            <input type="hidden" name="item_number_#{dem}" value="#{i.p.prix}"/>
+            <c:set var="dem" value="dem+1"/>
+        </c:forEach>
+
+
+        <input type="hidden" name="business" value="ss.henane22@gmail.com"/>
+        <input type="hidden" name="return" value="http://localhost:8080/TestJPA_DAO_war_exploded/success.xhtml"/>
+        <input type="hidden" name="cancel" value="http://localhost:8080/TestJPA_DAO_war_exploded/fail.xhtml"/>
+        <input type="image" name="submit" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynow_LG.gif" alt="PayPal - la solution de paiement en ligne la plus simple et la plus sécurisée !" />
+    </form>
+
+</h:body>
+</html>

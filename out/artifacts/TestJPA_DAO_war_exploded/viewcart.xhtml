@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Liste des produits</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>-->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css"/>-->
+    <h:outputStylesheet library="css" name="style2.css"></h:outputStylesheet>
+    <h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>
+    <!--<h:outputStylesheet library="css" name="style.css"></h:outputStylesheet>-->
+</h:head>
+<h:body styleClass="backco">
+    <p:graphicImage value="logo3.PNG" style="border-radius: 80px"/>
+    <h:form id="form">
+
+
+
+        <div class="container">
+            <h1 class="header" style="font-size: 50px;text-align: center">Welcome to shop online</h1>
+            <div  class="navbar-header" id="navbarSupportedContent" >
+
+            </div>
+            <div  class="col-md-12" style="margin-left: -210px">
+                <ul  id="nav" class="nav navbar-nav" >
+                    <li class="nav-item active" style="display: inline-block">
+
+                        <h:outputLink value="MyShop.xhtml" class="fa fa-home">Home</h:outputLink>
+
+                    </li>
+                    <li class="nav-item" style="display: inline-block">
+
+                        <h:outputLink value="Produit.xhtml" class="fa fa-laptop"> Products</h:outputLink>
+
+                    </li>
+                    <li class="nav-item">
+
+                        <h:outputLink value="login.xhtml" styleClass="fa fa-user" >My Account</h:outputLink>
+
+                    </li>
+                    <li class="nav-item">
+
+                        <h:outputLink value="contact.xhtml" styleClass="fa fa-phone-square">Contact us</h:outputLink>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--</h:graphicImage>-->
+
+
+        <p:galleria value="#{imagesView.images}" var="image" panelWidth="1350" panelHeight="600"
+                    effect="slide" effectDuration="10000" showCaption="true" style="margin-left: -10px">
+            <p:graphicImage name="/pics/#{image}"  alt="Image Description for #{image}" title="#{image}" width="1350" height="600" style="margin-top: -15px"/>
+
+
+
+
+        </p:galleria>
+
+
+
+        <p:growl id="msgs" showDetail="true"/>
+        <h1>Welcome to your cart</h1>
+        <p:dataTable var="carts" id="produit1" value="#{cartController.findAll()}"
+                     style="margin-bottom:20px;margin-top: 100px" width="500px" height="300px" editable="true"
+                     rows="10"  >
+            <f:facet name="header">   <h:outputLabel value="your carts"/>      </f:facet>
+
+
+            <p:ajax event="rowEdit" listener="#{cartController.onRowEdit}" update=":form:msgs"/>
+            <p:ajax event="rowEditCancel" listener="#{cartController.onRowCancel}" update=":form:msgs"/>
+
+            <p:column headerText="Product Name">
+                <p:cellEditor>
+                    <f:facet name="output"><p:outputLabel value="#{carts.productName}"/></f:facet>
+                    <f:facet name="input"><p:inputText id="modelInput" value="#{carts.productName}" style="width:100%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="Product Quantity">
+                <p:cellEditor>
+                    <f:facet name="output"> <p:outputLabel value="#{carts.quantite}" /></f:facet>
+                    <f:facet name="input"><p:inputText value="#{carts.quantite}" style="width:100%"/></f:facet>
+                </p:cellEditor>
+            </p:column>
+
+            <p:column headerText="Total">
+
+                    <p:outputLabel value="#{carts.total}"/>
+
+            </p:column>
+
+
+            <p:column headerText="delete">
+                <h:commandLink value="delete" action="#{cartController.delete(carts)}" onclick="return confirm('Are you sure?')"/>
+            </p:column>
+
+
+
+
+            <p:column style="width:32px">
+                <p:rowEditor/>
+            </p:column>
+        </p:dataTable>
+
+        <h:outputLink value="Produit.xhtml" styleClass="fa fa-shopping-cart" style="color: #722508">Continue shopping</h:outputLink>
+      <p:commandButton value="Process cart" action="#{cartController.payment()}" ajax="false"/>
+        <div class="row">
+            <div id="footer" class="col-sm-12">
+                <h5>For more information</h5>
+                <p class="fa fa-mail-forward">HiTechCollection@gmail.com</p><br/>
+                <p class="fa fa-print">&nbsp;copyright 2017*2018</p>
+            </div>
+        </div>
+
+    </h:form>
+
+
+</h:body>
+</html>
